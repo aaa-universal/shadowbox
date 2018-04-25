@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Trim Planner</title>
+<style type="text/css">
+.headingFont {
+    color: #00508A;
+    font-size: 130%;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: bold;
+}
+.inputFont {
+    color: #00508A;
+    font-size: 75%;
+    font-family: Verdana, Arial, sans-serif;
+}
+.buttonFont {
+    color: #00508A;
+    font-size: 80%;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+.containerTable {
+    border: none;
+    border-spacing: 0 6px;
+    width: 100%;
+}
+.headerTable {
+    background-color: #C4DFDF;
+    border: 1px solid #6F7E97;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    width: 100%;
+}
+.paramTable {
+    border: 1px solid #6F7E97;
+    border-spacing: 20px 8px;
+}
+.planTable {
+    border: 1px solid #6F7E97;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+.planCell {
+    border: 1px solid #6F7E97;
+    padding: 8px 20px;
+}
+.vsepTable {
+    border: none;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+.vsepCell {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 24px;
+}
+input {
+    color: #00306A;
+    font-size: 80%;
+    font-family: Courier New, Courier, fixed;
+    font-weight: bold;
+}
+select {
+    color: #00306A;
+    font-size: 80%;
+    font-family: Courier New, Courier, fixed;
+    font-weight: bold;
+}
+canvas {
+    background-color: #C0DDC0;
+    border: 1px solid #6F7E97;
+}
+a {
+    color: #0000AA;
+    font-size: 80%;
+    font-family: Helvetica, Arial, sans-serif;
+}
+</style>
+</head>
+<body bgcolor="#D4D1C8">
+<script src="trim_planner.js"></script>
+
+<table class="containerTable">
+<tr><td>
+<table class="headerTable">
+  <tr>
+    <td style="padding:4px">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+      <td><span class="headingFont">&nbsp;&nbsp;AAA&nbsp;Universal&nbsp;Trim&nbsp;Planner</span></td>
+      <td><form name="resetForm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="buttonFont" type="button" value="Reset All" onClick="window.location.reload( true )"/>
+          </form></td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</td></tr>
+<tr><td>
+<form name="wallForm1">
+<table class="paramTable">
+<tr>
+<td>
+<span class="inputFont">Wall Length</span><br/>
+<input type="text" name="wallLength1" id="wallLength1" value="100" size="8"/>
+<select name="wallLength1f" id="wallLength1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Min Box Width</span><br/>
+<input type="text" name="minBoxWidth1" id="minBoxWidth1" value="28" size="8"/>
+<select name="minBoxWidth1f" id="minBoxWidth1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Max Box Width</span><br/>
+<input type="text" name="maxBoxWidth1" id="maxBoxWidth1" value="40" size="8"/>
+<select name="maxBoxWidth1f" id="maxBoxWidth1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Side Width</span><br/>
+<input type="text" name="sideWidth1" id="sideWidth1" value="1" size="8"/>
+<select name="sideWidth1f" id="sideWidth1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5" selected="selected">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Box Height</span><br/>
+<input type="text" name="boxHeight1" id="boxHeight1" value="20" size="8"/>
+<select name="boxHeight1f" id="boxHeight1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<span class="inputFont">Min Start Distance</span><br/>
+<input type="text" name="minStartDist1" id="minStartDist1" value="3" size="8"/>
+<select name="minStartDist1f" id="minStartDist1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25" selected="selected">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Max Start Distance</span><br/>
+<input type="text" name="maxStartDist1" id="maxStartDist1" value="3" size="8"/>
+<select name="maxStartDist1f" id="maxStartDist1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25" selected="selected">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Box Distance</span><br/>
+<input type="text" name="boxDist1" id="boxDist1" value="3" size="8"/>
+<select name="boxDist1f" id="boxDist1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25" selected="selected">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Min End Distance</span><br/>
+<input type="text" name="minEndDist1" id="minEndDist1" value="3" size="8"/>
+<select name="minEndDist1f" id="minEndDist1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25" selected="selected">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Max End Distance</span><br/>
+<input type="text" name="maxEndDist1" id="maxEndDist1" value="3" size="8"/>
+<select name="maxEndDist1f" id="maxEndDist1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25" selected="selected">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="5">
+<span class="inputFont">Obstacles</span><br/>
+<input type="text" name="obstacles1" id="obstacles1" value="" size="86"/>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:bottom">
+<input class="buttonFont" type="button" value="Update Wall 1" onClick="updateWall( 1 )"/>
+</td>
+<td>
+<span class="inputFont">Object Start</span><br/>
+<input type="text" name="obstacleStart1" id="obstacleStart1" value="" size="8"/>
+<select name="obstacleStart1f" id="obstacleStart1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td>
+<span class="inputFont">Object Width</span><br/>
+<input type="text" name="obstacleWidth1" id="obstacleWidth1" value="3" size="8"/>
+<select name="obstacleWidth1f" id="obstacleWidth1f">
+<option value="0"></option><option value="0.125">1/8</option><option value="0.25">1/4</option>
+<option value="0.375">3/8</option><option value="0.5">1/2</option><option value="0.625">5/8</option>
+<option value="0.75">3/4</option><option value="0.875">7/8</option>
+</select>
+</td>
+<td style="vertical-align:bottom">
+<input class="buttonFont" type="button" value="Add Object" onClick="addObstacle( 1 )"/>
+</td>
+<td style="vertical-align:bottom">
+<input type="checkbox" name="showAll1" id="showAll1"/>
+<span class="inputFont">Show All Plans</span>
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td>
+<table class="planTable">
+<tbody id="plan1">
+</tbody>
+</table>
+</td></tr>
+</table>
+<hr/>
+</form>
+</body>
+</html>
